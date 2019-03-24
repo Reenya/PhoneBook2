@@ -1,3 +1,3 @@
-
+import './scss/main.scss';
 import './js/phone-book-controller';
- import './scss/main.scss';
+

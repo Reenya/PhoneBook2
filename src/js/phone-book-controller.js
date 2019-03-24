@@ -3,7 +3,6 @@
 import '../scss/search.scss'
 import {addItems, refreshItemsList} from './phone-book-view';
 import {changeState} from './phone-book-model';
-import * as random from './random-names';
 
 refreshItemsList();
 const searchField = document.querySelector('.search__field');

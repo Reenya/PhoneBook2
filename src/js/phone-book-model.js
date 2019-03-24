@@ -28,7 +28,7 @@ const searchItems = (searchWord, allItems) => {
 
     var result = allItems.filter(
         function (person) {
-            return itsFound(person.firstName + ' ' + person.lastName);
+            return itsFound(person.firstName + ' ' + person.lastName+ ' ' +person.phoneNumber +' '+ person.zipCode);
         }
     );
     return result;

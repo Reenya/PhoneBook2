@@ -24,17 +24,19 @@ const addItems = () => {
             templateRow.innerHTML =
                 '<td class="phone-book__cell">' + person.firstName + '</td>' +
                 '<td class="phone-book__cell">' + person.lastName + '</td>' +
-                '<td class="phone-book__cell">' + person.phoneNumber + '</td>' +
+                '<td class="phone-book__cell">' + convertPhoneNumber(person.phoneNumber) + '</td>' +
                 '<td class="phone-book__cell">' + person.zipCode + '</td>';
             tableContent.appendChild(templateRow);
         });
 
         table.appendChild(tableContent);
         const listPerson = document.querySelectorAll('.phone-book__row');
-        getObserver().observe(listPerson[listPerson.length-5]);
+        const index = listPerson.length<5?listPerson.length-1:listPerson.length-5;
+        getObserver().observe(listPerson[index]);
     });
 };
 
+const convertPhoneNumber = n => `+${n[0]} (${n[1]}${n[2]}${n[3]}) ${n[4]}${n[5]}${n[6]}-${n[7]}${n[8]}${n[9]}${n[10]}`;
 export {refreshItemsList,addItems} ;
 
 
