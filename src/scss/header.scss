@@ -1,12 +1,49 @@
+
+
 .header {
   @include clearfix;
+  margin-top: 35px;
+  background: #ffffff;
+  padding: 7px 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  top:0px;
+
+}
+
+
+.sticky-content{
+  padding-top: 30px;
 }
 
 .header__page-title {
+  vertical-align: middle;
   float: left;
+
 }
 
 .header__search {
-  padding-top: 60px;
+  vertical-align: middle;
+  padding-top: 6px;
+  padding-right: 10px;
   float: right;
+}
+
+@media (max-width: 630px){
+  .page-title{
+    font-size: 30px !important;
+    float: none;
+  }
+  .search{
+    float: none;
+  }
+
+  .header__search {
+    padding-right: 0;
+  }
+  .search__field {
+    padding:2px 20px;
+    font-size: 14px;
+  }
+
 }
