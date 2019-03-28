@@ -1,14 +1,13 @@
 'use strict';
 import "babel-polyfill";
-import {refreshItemsList} from "./phone-book-view";
+import {addItems} from "./phone-book-view";
 
 let searchWord = '';
 const changeState = (newSearchWord) => {
     tempItem = 0;
     searchWord = newSearchWord;
-    refreshItemsList();
-
-}
+    addItems();
+};
 
 const countItems = 30;
 let tempItem = 0;
@@ -28,7 +27,7 @@ const searchItems = (searchWord, allItems) => {
 
     var result = allItems.filter(
         function (person) {
-            return itsFound(person.firstName + ' ' + person.lastName+ ' ' +person.phoneNumber +' '+ person.zipCode);
+            return itsFound(person.firstName + ' ' + person.lastName + ' ' + person.phoneNumber + ' ' + person.zipCode);
         }
     );
     return result;
@@ -38,9 +37,9 @@ const searchItems = (searchWord, allItems) => {
 const getNextData = async () => {
     const body = await getData();
     const result = body.slice(tempItem, tempItem + countItems);
-    tempItem += countItems;
-    return result;
+    tempItem += result.length;
+    return {data: result, pos: tempItem - result.length};
 };
 
 
-export {getData, getNextData,changeState};
+export {getNextData, changeState};
