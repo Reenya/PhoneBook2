@@ -1,9 +1,14 @@
 import './scss/main.scss';
-import phoneBookController from  './js/phone-book/phone-book-controller';
-import searchController from './js/search/search-controller';
+import PhoneBookController from  './js/phone-book/phone-book-controller';
+import SearchController from './js/search/search-controller';
+import Header from "./js/header/header";
+
 
 (function () {
-    phoneBookController();
-    searchController();
+    new PhoneBookController();
+    new SearchController();
+    new Header();
 
 })();
+
+

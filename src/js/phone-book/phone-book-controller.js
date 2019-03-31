@@ -1,35 +1,38 @@
-;'use strict';
 import './phone-book.scss';
+import EventBus from '../event-bus';
+import PhoneBookView from './phone-book-view';
+import PhoneBookModel from './phone-book-model';
 
-import {addItems, createItemsList} from './phone-book-view';
-import {changeState} from './phone-book-model';
+export default class PhoneBookController {
+    constructor() {
+        this.model = new PhoneBookModel(this);
+        this.view = new PhoneBookView(this);
 
-const phoneBookController = () => {
-    createItemsList();
-};
+        EventBus.subscribe('changeSearchWord', this.changeSearch.bind(this));
+    }
 
-const changeSearch = (searchWord) => {
-    changeState(searchWord);
-};
 
-const getObserver =() => {
-    const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 1.0
+    changeSearch  (searchWord) {
+        this.model.changeState(searchWord);
     };
 
-    const checkIntersection = (enteries, observer) => {
-        enteries.forEach(entry => {
-            if (entry.intersectionRatio > 0) {
-                observer.unobserve(entry.target);
-                addItems();
-            }
-        });
-    }
-    const observer = new IntersectionObserver(checkIntersection, options);
-    return observer;
+    getObserver  () {
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 1.0
+        };
 
-}
-export default phoneBookController;
-export {getObserver, changeSearch};
+        const checkIntersection = (enteries, observer) => {
+            enteries.forEach(entry => {
+                if (entry.intersectionRatio > 0) {
+                    observer.unobserve(entry.target);
+                    this.view.addItems();
+                }
+            });
+        }
+        const observer = new IntersectionObserver(checkIntersection, options);
+        return observer;
+
+    }
+};
