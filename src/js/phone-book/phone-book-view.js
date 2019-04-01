@@ -1,4 +1,3 @@
-import {getObserver} from "../header/sticky";
 
 export default class PhoneBookView {
 
@@ -17,9 +16,6 @@ export default class PhoneBookView {
                         <th class="phone-book__cell--title">ZIP-code</th>\n
                     </tr></thead>
                     <tbody class="phone-book__tbody"></tbody>`;
-        console.log(table.childNodes);
-        const thead = document.querySelector('.phone-book__thead');
-        getObserver().observe(thead);
          this.addItems();
     };
 
@@ -65,8 +61,9 @@ export default class PhoneBookView {
                 const index = listPerson.length < 5 ? listPerson.length - 1 : listPerson.length - 5;
                 this.controller.getObserver().observe(listPerson[index]);
             }
-
         });
+
+
     };
 
     convertPhoneNumber(n) {
