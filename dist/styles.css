@@ -54,19 +54,23 @@
   position: fixed !important;
   top: 50px; }
 
+.phone-book__row--title.container {
+  padding: 0 !important; }
+
 @media (max-width: 660px) {
   .phone-book__sticky {
     top: 80px; }
   .phone-book {
     margin-top: 60px; } }
 .sticky {
-  position: fixed;
-  padding: 7px 5px;
-  background: #152228; }
+  position: fixed !important;
+  padding: 7px 5px !important;
+  background: #152228 !important; }
 
 .sticky .page-title {
   font-size: 30px;
-  color: #eeeeee; }
+  color: #eeeeee;
+  background: #152228; }
 
 .sticky .header__search {
   padding-top: 0; }

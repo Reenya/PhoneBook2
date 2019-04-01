@@ -56,6 +56,10 @@
   top: 50px;
 }
 
+.phone-book__row--title.container{
+  padding: 0 !important;
+}
+
 
 @media (max-width: 660px) {
   .phone-book__sticky{
