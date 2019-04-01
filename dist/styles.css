@@ -12,26 +12,68 @@
     box-shadow: 0 1px 5px #d5d5d5;
     width: 320px; }
 .phone-book {
-  padding-bottom: 30px; }
-
-.phone-book {
+  padding-top: 40px;
+  padding-bottom: 30px;
   width: 100%;
+  position: relative;
   border-spacing: 0; }
 
 .phone-book__row:hover {
   color: #8c8c8c; }
 
 .phone-book__cell {
-  max-width: 25%;
+  width: 25%;
   border-bottom: 1px solid darkgrey;
   padding-top: 20px;
   padding-bottom: 12px;
   padding-left: 5px; }
 
+.phone-book__thead {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: -10px;
+  display: block; }
+
 .phone-book__cell--title {
   text-align: left;
-  padding-bottom: 15px;
-  border: 0; }
+  padding: 15px 5px;
+  border: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 25%;
+  font-size: 16px; }
+
+.phone-book__row--title {
+  font-size: 0;
+  display: block;
+  padding: 0;
+  background: white; }
+
+.phone-book__sticky {
+  position: fixed !important;
+  top: 50px; }
+
+.phone-book__row--title.container {
+  padding: 0 !important; }
+
+@media (max-width: 660px) {
+  .phone-book__sticky {
+    top: 80px; }
+  .phone-book {
+    margin-top: 60px; } }
+.sticky {
+  position: fixed !important;
+  padding: 7px 5px !important;
+  background: #152228 !important; }
+
+.sticky .page-title {
+  font-size: 30px;
+  color: #eeeeee;
+  background: #152228; }
+
+.sticky .header__search {
+  padding-top: 0; }
 body, html {
   width: 100%;
   height: 100%; }
@@ -58,6 +100,10 @@ a {
   margin: 0 auto;
   max-width: 960px;
   padding: 0 15px; }
+
+.empty-block {
+  height: 100px;
+  width: 100%; }
 
 /*! normalize.scss v4.1.1 | MIT License | github.com/necolas/normalize.scss */
 /**
@@ -426,19 +472,20 @@ textarea {
   /* 2 */ }
 
 .header {
-  margin-top: 35px;
-  background: #ffffff;
-  padding: 7px 5px;
+  background: white;
+  padding: 20px 5px;
   position: -webkit-sticky;
-  position: sticky;
-  top: 0px; }
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  transition: all .2s;
+  -moz-transition: all .2s;
+  z-index: 100; }
   .header:after {
     content: "";
     display: block;
     clear: both; }
-
-.sticky-content {
-  padding-top: 30px; }
 
 .header__page-title {
   vertical-align: middle;
@@ -465,43 +512,7 @@ textarea {
 .page-title {
   font-size: 38px;
   font-weight: 300;
-  color: #3e3e3e; }
+  color: #505053;
+  transition: all .4s; }
   .page-title:hover {
     color: #7b7b7b; }
-
-.phone-book {
-  padding-bottom: 30px; }
-
-.phone-book {
-  width: 100%;
-  border-spacing: 0; }
-
-.phone-book__row:hover {
-  color: #8c8c8c; }
-
-.phone-book__cell {
-  max-width: 25%;
-  border-bottom: 1px solid darkgrey;
-  padding-top: 20px;
-  padding-bottom: 12px;
-  padding-left: 5px; }
-
-.phone-book__cell--title {
-  text-align: left;
-  padding-bottom: 15px;
-  border: 0; }
-
-.navigation__item {
-  display: inline-block; }
-
-.navigation__link {
-  padding: 8px 18px;
-  border-radius: 5px;
-  width: 120px; }
-  .navigation__link:hover {
-    background: #72c6ff;
-    color: white; }
-
-.navigation__link--active {
-  background: #8f8f8f;
-  color: white; }

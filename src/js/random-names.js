@@ -30,3 +30,4 @@ for (let i =  1; i<500;i++){
     dataJSON.push(new Person(getFirtsName(),getLastName(),getPhone()+'',getZip()+''));
 }
 dataJSON = JSON.stringify(dataJSON,'',4);
+
